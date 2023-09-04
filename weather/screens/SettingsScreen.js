@@ -1,12 +1,35 @@
 // screens/SettingsScreen.js
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import TemperatureUnitSelector from '../components/TemperatureUnitSelector';
+import TextSizeSelector from '../components/TextSizeSelector';
+import SoundEffectsToggle from '../components/SoundEffectsToggle';
+import BrightnessAdjuster from '../components/BrightnessAdjuster';
 
 const SettingsScreen = () => {
+  const [temperatureUnit, setTemperatureUnit] = useState('Celsius');
+  const [textSize, setTextSize] = useState('Normal');
+  const [soundEffects, setSoundEffects] = useState(true);
+  const [brightness, setBrightness] = useState(0.5);
+
   return (
     <View>
-      <Text>Settings Screen</Text>
-      {/* Here, you'll implement the settings UI and functionality */}
+      <TemperatureUnitSelector 
+        temperatureUnit={temperatureUnit}
+        setTemperatureUnit={setTemperatureUnit}
+      />
+      <TextSizeSelector 
+        textSize={textSize}
+        setTextSize={setTextSize}
+      />
+      <SoundEffectsToggle 
+        soundEffects={soundEffects}
+        setSoundEffects={setSoundEffects}
+      />
+      <BrightnessAdjuster 
+        brightness={brightness}
+        setBrightness={setBrightness}
+      />
     </View>
   );
 };

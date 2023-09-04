@@ -1,39 +1,57 @@
-// screens/MainWeatherScreen.js
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Text, View, StyleSheet, Image, FlatList, TouchableOpacity } from 'react-native';
+import NavBar from '../components/NavBar';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+import WeatherDisplay from '../components/WeatherDisplay';
 
-const apiKey = 'ad7d9b1584c14ff2842100245220803';
+export default function MainWeatherScreen({ navigation, route }) {
+  const [citiesWeather, setCitiesWeather] = useState([]);
+  useEffect(() => {
+    if (route.params?.newCityWeather) {
+      setCitiesWeather(prevCities => {
+        console.log("Adding new city weather:", route.params.newCityWeather);
+        return [...prevCities, route.params.newCityWeather];
+      });
+    }
+  }, [route.params?.newCityWeather]);
+  
 
-export default function MainWeatherScreen() {
-  const [cityName, setCityName] = useState();
-  const [countryName, setCountryName] = useState();
-  const [temperature, setTemperature] = useState();
-  const [weatherData, setWeatherData] = useState([]);  
-  const [dateAndTime, setDateAndTime] = useState();
+  const deleteCity = (cityIndex) => {
+    const newCitiesWeather = [...citiesWeather];
+    newCitiesWeather.splice(cityIndex, 1);
+    setCitiesWeather(newCitiesWeather);
+  };
 
-  const cityWeatherUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName},${countryName}&aqi=no`;
+  const renderCity = ({ item }) => {
+    if (item && item.location && item.current) {
+        return (
+            <WeatherDisplay 
+              cityName={item.location.name}
+              countryName={item.location.country}
+              temperature={item.current.temp_c}
+              weatherDescription={item.current.condition.text}
+              iconURL={`https:${item.current.condition.icon}`}
+              dateAndTime={item.location.localtime}
+            />
+        );
+    }
+    return null; // or a placeholder component if you prefer
+};
 
-  useEffect(()=>{
-    fetch(cityWeatherUrl)
-    .then(response => response.json())
-    .then(cityWeatherData => {
-      setCityName(cityWeatherData.location.name);
-      setCountryName(cityWeatherData.location.country);
-      setTemperature(cityWeatherData.current.temp_c);
-      setWeatherData(cityWeatherData.current.condition);
-      setDateAndTime(cityWeatherData.location.localtime);            
-    });
-  }, [cityName, countryName]);
 
   return (
     <View style={styles.container}>
-       <Text>city: {cityName}</Text>
-       <Text>country: {countryName}</Text>
-       <Text>temperature: {temperature}°C</Text>
-       <Text>weather description: {weatherData.text}</Text>
-       <Text>weather icon:</Text>
-       <Image style={styles.image} source={{uri: `https:${weatherData.icon}`}} />
-       <Text>date and time: {dateAndTime}</Text>
+      <NavBar 
+        navigateToSettings={() => navigation.navigate('SettingsScreen')}
+        navigateToSearch={() => navigation.navigate('CitySearchScreen')}
+      />
+      <FlatList 
+        style={styles.card}
+        data={citiesWeather.filter(city => city)}
+        renderItem={renderCity}
+        keyExtractor={(item) => item.location?.name || ''}
+/>
+
     </View>
   );
 }
@@ -41,12 +59,16 @@ export default function MainWeatherScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 100
+    padding: 20,
+    marginTop: 0,
   },
   image: {
     resizeMode: 'contain',
     flex: 0.1,
     aspectRatio: 1,
     backgroundColor: '#ffffff'
+  },
+  card: {
+    marginTop:50,
   }
 });
