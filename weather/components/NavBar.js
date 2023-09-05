@@ -3,6 +3,8 @@ import React from 'react';
 import { View, Button, StyleSheet } from 'react-native';
 
 const NavBar = ({ navigateToSettings, navigateToSearch }) => {
+
+  
   return (
     <View style={styles.navBar}>
       <Button title="⚙️" onPress={navigateToSettings} />

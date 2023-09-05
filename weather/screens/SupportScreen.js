@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, Linking } from 'react-native';
 
 const SupportScreen = () => {
+
   return (
     <View>
       <Text>Thank you for purchasing Weather Time. If you have any issues or feedback, please contact: 1800 123 456.</Text>

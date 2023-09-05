@@ -4,7 +4,6 @@ import { useNavigation } from '@react-navigation/native';
 import CityList from '../components/CityList';
 import SearchBar from '../components/SearchBar';
 import * as Location from 'expo-location';
-import WeatherDisplay from '../components/WeatherDisplay';
 
 const CitySearchScreen = () => {
   const [cityList, setCityList] = useState([]);
@@ -112,17 +111,12 @@ const CitySearchScreen = () => {
     }
   };
   
-  return (
+   return (
     <View>
-      <SearchBar 
-        searchQuery={searchQuery} 
-        setSearchQuery={setSearchQuery} 
-        onSubmit={handleSearchSubmit}
-      />
+      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <CityList cityList={filteredCityList} selectCity={selectCity} />
     </View>
   );
 };
-
 
 export default CitySearchScreen;

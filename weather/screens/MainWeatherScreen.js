@@ -6,6 +6,7 @@ import WeatherDisplay from '../components/WeatherDisplay';
 
 export default function MainWeatherScreen({ navigation, route }) {
   const [citiesWeather, setCitiesWeather] = useState([]);
+
   useEffect(() => {
     if (route.params?.newCityWeather) {
       setCitiesWeather(prevCities => {

@@ -1,8 +1,12 @@
 // components/TextSizeSelector.js
-import React from 'react';
-import { View, Button, Text, StyleSheet} from 'react-native';
+import React, { useContext } from 'react';
+import { View, Button, Text, StyleSheet } from 'react-native';
+import TextSizeContext from '../context/TextSizeContext'; // Import the context
 
-const TextSizeSelector = ({ textSize, setTextSize }) => {
+const TextSizeSelector = () => {
+  // Use the context to get the textSize and its setter function
+  const { textSize, setTextSize } = useContext(TextSizeContext);
+
   return (
     <View style={styles.container}>
       <View style={styles.labelContainer}>
@@ -10,14 +14,28 @@ const TextSizeSelector = ({ textSize, setTextSize }) => {
       </View>
       
       <View style={styles.options}>
-        <Button style={styles.btn} title="Normal" onPress={() => setTextSize('Normal')} />
-        <Button style={styles.btn} title="Large" onPress={() => setTextSize('Large')} />
-        <Button style={styles.btn} title="Extra Large" onPress={() => setTextSize('Extra Large')} />
+        <Button 
+          style={styles.btn} 
+          title="Normal" 
+          onPress={() => setTextSize('Normal')} 
+          color={textSize === 'Normal' ? 'blue' : 'gray'}
+        />
+        <Button 
+          style={styles.btn} 
+          title="Large" 
+          onPress={() => setTextSize('Large')} 
+          color={textSize === 'Large' ? 'blue' : 'gray'}
+        />
+        <Button 
+          style={styles.btn} 
+          title="Extra Large" 
+          onPress={() => setTextSize('Extra Large')} 
+          color={textSize === 'Extra Large' ? 'blue' : 'gray'}
+        />
       </View>
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -35,5 +53,6 @@ const styles = StyleSheet.create({
   btn: {
     
   }
-})
+});
+
 export default TextSizeSelector;

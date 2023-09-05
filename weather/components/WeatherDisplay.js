@@ -3,16 +3,17 @@ import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
 const WeatherDisplay = ({ cityName, countryName, temperature, weatherDescription, iconURL, dateAndTime }) => {
+
   return (
     <View style={styles.card}>
       <View style={styles.cardHeader}>
-        <Text style={styles.city}>{cityName}</Text>
-        <Text style={styles.country}>{countryName}</Text>
+        <Text style={dynamicStyles.city}>{cityName}</Text>
+        <Text style={dynamicStyles.country}>{countryName}</Text>
       </View>
       <View style={styles.cardBody}>
         <View style={styles.tempContainer}>
           <Image source={{ uri: iconURL }} style={styles.image} />
-          <Text style={styles.temp}>{Math.floor(temperature)}°C</Text>
+          <Text style={dynamicStyles.temp}>{Math.floor(temperature)}°C</Text>
         </View>
         <View style={styles.tempInfo}>
           <Text style={styles.desc}>{weatherDescription}</Text>
@@ -41,12 +42,15 @@ const styles = StyleSheet.create({
   },
 
   city: {
+    fontSize: 27,
     fontWeight: '700',
     letterSpacing: 1.2,
     fontSize: 27
   },
 
   country: {
+    fontSize: 16,
+
   },
 
   tempContainer: {
@@ -65,9 +69,7 @@ const styles = StyleSheet.create({
   },  
 
   temp: {
-    fontSize: 60,
-    padding: 0,
-    textAlign: 'right'
+ 
 
   },
   image: {
@@ -78,4 +80,6 @@ const styles = StyleSheet.create({
 
   }
 })
+
+
 export default WeatherDisplay;

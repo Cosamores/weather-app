@@ -1,6 +1,6 @@
 // components/TemperatureUnitSelector.js
 import React from 'react';
-import { View, SectionList, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 
 const TemperatureUnitSelector = ({ unit, setUnit }) => {
   return (
