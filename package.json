@@ -8,24 +8,30 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@expo/vector-icons": "^12.0.0",
-    "expo": "^44.0.6",
+    "@adrianso/react-native-device-brightness": "^1.2.7",
+    "@expo/vector-icons": "^13.0.0",
+    "@react-native-community/slider": "^4.4.3",
+    "@react-navigation/native": "^6.1.7",
+    "@react-navigation/stack": "^6.3.17",
+    "expo": "^49.0.9",
+    "expo-av": "~13.4.1",
+    "expo-brightness": "~11.4.0",
     "expo-constants": "^14.4.2",
-    "expo-status-bar": "~1.1.0",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "expo-location": "~16.1.0",
+    "expo-screen-orientation": "~6.0.5",
+    "expo-status-bar": "~1.6.0",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
     "react-native": "^0.72.4",
-    "react-native-paper": "4.9.2",
-    "react-native-web": "0.17.1"
+    "react-native-paper": "5.10.4",
+    "react-native-screen-brightness": "^2.0.0-alpha",
+    "react-native-swipe-list-view": "^3.2.9",
+    "react-native-web": "0.19.8",
+    "react-redux": "^8.1.2",
+    "redux": "^4.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.22.15"
   },
-  "private": true,
-  "name": "weather-app",
-  "version": "1.0.0",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "private": true
 }
