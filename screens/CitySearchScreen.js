@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import CityList from '../components/CityList';
-import SearchBar from '../components/SearchBar';
 import * as Location from 'expo-location';
 import * as ScreenOrientation from 'expo-screen-orientation';
+
+import CityList from '../components/CityList';
+import SearchBar from '../components/SearchBar';
+
+import { WEATHER_API_KEY, GEONAMES_USERNAME } from '@env';
 
 const CitySearchScreen = () => {
   const [cityList, setCityList] = useState([]);
@@ -34,7 +37,7 @@ const CitySearchScreen = () => {
       const { latitude, longitude } = location.coords;
 
       try {
-        const response = await fetch(`http://api.geonames.org/citiesJSON?north=${latitude + 1}&south=${latitude - 1}&east=${longitude + 1}&west=${longitude - 1}&lang=de&username=cosamores`);
+        const response = await fetch(`http://api.geonames.org/citiesJSON?north=${latitude + 1}&south=${latitude - 1}&east=${longitude + 1}&west=${longitude - 1}&lang=de&username=${GEONAMES_USERNAME}`);
         const data = await response.json();
         setCityList(data.geonames);
         setFilteredCityList(data.geonames);
@@ -63,7 +66,7 @@ const CitySearchScreen = () => {
 
   const fetchWeatherData = async (cityName) => {
     try {
-      const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=f831f9bbc0ac4eee903183026230409&q=${cityName}`);
+      const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${cityName}`);
       const data = await response.json();
       return data;
     } catch (error) {
@@ -73,7 +76,7 @@ const CitySearchScreen = () => {
 
   const fetchWeatherDataForInputCity = async (cityName) => {
     try {
-      const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=f831f9bbc0ac4eee903183026230409&q=${cityName}`);
+      const response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${cityName}`);
       const data = await response.json();
       return data;
     } catch (error) {

@@ -11,10 +11,10 @@ export const useDynamicStyles = () => {
       backgroundColor: '#f0f0f0',
       borderRadius: 25,
       margin: 20,
-      elevation: 3, // for Android
-      shadowOffset: { width: 0, height: 2 }, // for iOS
-      shadowOpacity: 0.25, // for iOS
-      shadowRadius: 3.84, // for iOS
+      elevation: 3,
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.25,
+      shadowRadius: 3.84,
     },
     input: {
       flex: 1,

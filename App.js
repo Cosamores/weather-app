@@ -1,13 +1,14 @@
-// App.js
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { TextSizeProvider } from './context/TextSizeContext';
+import { TemperatureProvider } from './context/TemperatureContext';
+
 import MainWeatherScreen from './screens/MainWeatherScreen';
 import CitySearchScreen from './screens/CitySearchScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import SupportScreen from './screens/SupportScreen';
-import { TemperatureProvider } from './context/TemperatureContext';
-import { TextSizeProvider } from './context/TextSizeContext';
+
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 

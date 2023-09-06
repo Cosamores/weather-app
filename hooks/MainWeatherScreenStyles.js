@@ -13,6 +13,7 @@ container: {
   flex: 1,
   padding: isLandscape ? 15 : 30,
   marginTop: 0,
+  backgroundColor: '#4444ff'
 },
 image: {
   resizeMode: 'contain',
@@ -22,6 +23,16 @@ image: {
 },
 card: {
   marginTop: getActualFontSize(isLandscape ? 60 : 90, fontSizeType),
+},
+hiddenItem: {
+  flex: 1,
+  flexDirection: 'row-reverse',
+  alignItems: 'center',
+  justifyContent: 'right'
+},
+deleteBtn: {
+  color: 'white',
+  fontWeight: '700', textAlign: 'right',
 }
 })
 return dynamicStyles;

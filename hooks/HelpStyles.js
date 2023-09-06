@@ -1,4 +1,3 @@
-// components/HelpStyles.js
 import { useTextSize } from '../context/TextSizeContext';
 import { StyleSheet } from 'react-native';
 

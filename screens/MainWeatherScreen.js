@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Text, View, TouchableOpacity, Dimensions } from 'react-native';
-import NavBar from '../components/NavBar';
-import WeatherDisplay from '../components/WeatherDisplay';
-import { useTemperature } from '../context/TemperatureContext';
-import { useDynamicStyles } from '../hooks/MainWeatherScreenStyles';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import { SwipeListView } from 'react-native-swipe-list-view';
+import { useTemperature } from '../context/TemperatureContext';
+import { useDynamicStyles } from '../hooks/MainWeatherScreenStyles';
+
+import NavBar from '../components/NavBar';
+import WeatherDisplay from '../components/WeatherDisplay';
+
 
 export default function MainWeatherScreen({ navigation, route }) {
   const [citiesWeather, setCitiesWeather] = useState([]);
@@ -34,12 +36,12 @@ export default function MainWeatherScreen({ navigation, route }) {
 
 
   const renderHiddenItem = (data, rowMap) => (
-    <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
+    <View style={styles.hiddenItem}>
       <TouchableOpacity
-        style={{ backgroundColor: '#ff005f', width: 75, height: '90%', maxHeight: isLandscape ? 80 : '90%', alignItems: 'center', justifyContent: 'center', borderTopRightRadius:30, borderBottomRightRadius: 30 }}
+        style={{ backgroundColor: '#ff005f', width: 100, height: '90%', maxHeight: isLandscape ? 80 : '90%', alignItems: 'center', justifyContent: 'center', borderTopRightRadius:30, borderBottomRightRadius: 30 }}
         onPress={() => deleteCity(data.index, rowMap)}
       >
-        <Text style={{ color: 'white',  fontWeight: '700' }}>Delete</Text>
+        <Text style={styles.deleteBtn}>Delete</Text>
       </TouchableOpacity>
     </View>
   );

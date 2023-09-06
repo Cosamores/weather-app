@@ -19,7 +19,7 @@ const isLandscape = width > height;
       backgroundColor: '#fff',
       zIndex: 1,
       backgroundColor: '#234567',
-      maxHeight: isLandscape ? 80 : 'unset'
+      maxHeight: isLandscape ? 80 : 130
       
 
     },
@@ -36,9 +36,9 @@ const isLandscape = width > height;
       top: 12,
     },
     title: {
-      fontSize: getActualFontSize(isLandscape ? 20 : 24, fontSizeType),
+      fontSize: getActualFontSize(isLandscape ? 18 : 22, fontSizeType),
       textAlign: 'center',
-      padding: 12,
+      padding: 0,
       fontWeight: 'bold',
       color: '#ffffff',
     }

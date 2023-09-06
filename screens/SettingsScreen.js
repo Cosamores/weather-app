@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { ScrollView } from 'react-native';
+import * as ScreenOrientation from 'expo-screen-orientation';
+
 import TemperatureUnitSelector from '../components/TemperatureUnitSelector';
 import TextSizeSelector from '../components/TextSizeSelector';
 import SoundEffectsToggle from '../components/SoundEffectsToggle';
 import BrightnessAdjuster from '../components/BrightnessAdjuster';
 import Help from '../components/Help'; 
-import * as ScreenOrientation from 'expo-screen-orientation';
+
 
 const SettingsScreen = () => {
   useEffect(() => {
