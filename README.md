@@ -44,7 +44,7 @@ MIT License.
 
 ## References
 
-[Weather API: ](https://www.weatherapi.com/)
-[Geonames API: ](https://www.geonames.org/)
-[React Native Styling Buttons: ](https://docs.expo.dev/ui-programming/react-native-styling-buttons/)
-[React Native Screen Brightness: ](https://www.npmjs.com/package/react-native-screen-brightness/)
+- [Weather API: ](https://www.weatherapi.com/)
+- [Geonames API: ](https://www.geonames.org/)
+- [React Native Styling Buttons: ](https://docs.expo.dev/ui-programming/react-native-styling-buttons/)
+- [React Native Screen Brightness: ](https://www.npmjs.com/package/react-native-screen-brightness/)
