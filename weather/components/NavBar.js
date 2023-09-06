@@ -1,28 +1,22 @@
 // components/NavBar.js
 import React from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
+import { useDynamicStyles } from '../hooks/NavBarStyles';
+import { Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('window');
 
 const NavBar = ({ navigateToSettings, navigateToSearch }) => {
+  const styles = useDynamicStyles();
+  const isLandscape = width > height;
+
   return (
     <View style={styles.navBar}>
-      <Button title="⚙️" onPress={navigateToSettings} />
-      <Button title="🔍" onPress={navigateToSearch} />
+      <Pressable title="⚙️" onPress={navigateToSettings} ><Text style={styles.btn}>⚙️</Text></Pressable>
+      <Text style={styles.title}>{isLandscape ? 'Weather App' : 'Weather\nApp'}</Text>
+      <Pressable title="🔍" onPress={navigateToSearch} ><Text style={styles.btn}>🔍</Text></Pressable>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  navBar: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    padding: 10,
-    backgroundColor: '#fff',
-    zIndex: 1
-  }
-});
 
 export default NavBar;

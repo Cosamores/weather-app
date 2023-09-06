@@ -1,36 +1,26 @@
 // components/TemperatureUnitSelector.js
 import React from 'react';
-import { View, SectionList, Text, StyleSheet, Button } from 'react-native';
+import { useTemperature } from '../context/TemperatureContext';
+import { View,  Text,  Pressable } from 'react-native';
+import { useDynamicStyles } from '../hooks/TemperatureUnitSelectorStyles';
 
-const TemperatureUnitSelector = ({ unit, setUnit }) => {
+const TemperatureUnitSelector = () => {
+  const { unit, toggleUnit } = useTemperature();
+  const styles = useDynamicStyles();
+
+
+  const buttonLabel = unit === 'C' ? 'CELSIUS' : 'FAHRENHEIT';
+
   return (
     <View style={styles.container}>
-      <View style={styles.labelContainer}>
-        <Text style={styles.label}>Choose you preferred measurement unit</Text>
-       </View>
-      <View style={styles.options}>
-        <Button style={styles.btn} title="Celsius" onPress={() => setUnit('C')} />
-        <Button style={styles.btn} title="Fahrenheit" onPress={() => setUnit('F')} />
-      </View>
+      <Text style={styles.label}>Choose the measurement unit</Text>
+      <Pressable
+        style={styles.btnBox} 
+        title={buttonLabel}
+        onPress={toggleUnit}
+      ><Text style={[styles.btn, styles.shadowProp]} >{buttonLabel}</Text></Pressable>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    padding: 12
-  },
-  label: {
-    padding: 10,
-    margin: 3
-  },
-  options: {
-    padding: 12,
-    display: 'flex',
-    gap: 3
-  },
-  btn: {
-    
-  }
-})
 export default TemperatureUnitSelector;

@@ -1,8 +1,13 @@
 // components/CityList.js
 import React from 'react';
-import { View, FlatList, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, FlatList, TouchableOpacity, Text } from 'react-native';
+import { useTextSize } from '../context/TextSizeContext';
+import { useDynamicStyles } from '../hooks/CityListStyles';
 
 const CityList = ({ cityList, selectCity }) => {
+  const { fontSizeType, toggleFontSize, getActualFontSize } = useTextSize();
+  const styles = useDynamicStyles();
+
   return (
     <View>
       <FlatList 
@@ -17,27 +22,6 @@ const CityList = ({ cityList, selectCity }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-
-  itemContainer: {
-    margin: 6,
-    marginLeft: 30,
-    marginRight: 30,
-    padding: 3,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0ef',
-    backgroundColor: '#ffffff',
-    borderRadius: 50,
-    overflow: 'scroll'
-  },
-  name: {
-    margin: 0,
-    padding: 9,
-    marginLeft: 21,
-  }
-})
-
 
 
 export default CityList;

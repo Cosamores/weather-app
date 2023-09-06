@@ -1,10 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import CityList from '../components/CityList';
 import SearchBar from '../components/SearchBar';
 import * as Location from 'expo-location';
-import WeatherDisplay from '../components/WeatherDisplay';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const CitySearchScreen = () => {
   const [cityList, setCityList] = useState([]);
@@ -12,6 +13,13 @@ const CitySearchScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigation = useNavigation();
 
+  useEffect(() => {
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.ALL);
+    return () => {
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT);
+    };
+  }, []);
+  
   useEffect(() => {
     async function fetchCities() {
       // Get permission for location
@@ -87,7 +95,7 @@ const CitySearchScreen = () => {
         weatherData = {
           location: {
             name: city.name || searchQuery,
-            country: weatherData.country || '', // Add default values if necessary
+            country: weatherData.country || '', 
             localtime: weatherData.localtime || ''
           },
           current: weatherData.current || {}
@@ -113,7 +121,7 @@ const CitySearchScreen = () => {
   };
   
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <SearchBar 
         searchQuery={searchQuery} 
         setSearchQuery={setSearchQuery} 
@@ -123,6 +131,5 @@ const CitySearchScreen = () => {
     </View>
   );
 };
-
 
 export default CitySearchScreen;

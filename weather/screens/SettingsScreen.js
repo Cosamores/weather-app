@@ -1,36 +1,28 @@
-// screens/SettingsScreen.js
-import React, { useState } from 'react';
-import { View } from 'react-native';
+import React, { useEffect } from 'react';
+import { ScrollView } from 'react-native';
 import TemperatureUnitSelector from '../components/TemperatureUnitSelector';
 import TextSizeSelector from '../components/TextSizeSelector';
 import SoundEffectsToggle from '../components/SoundEffectsToggle';
 import BrightnessAdjuster from '../components/BrightnessAdjuster';
+import Help from '../components/Help'; 
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 const SettingsScreen = () => {
-  const [temperatureUnit, setTemperatureUnit] = useState('Celsius');
-  const [textSize, setTextSize] = useState('Normal');
-  const [soundEffects, setSoundEffects] = useState(true);
-  const [brightness, setBrightness] = useState(0.5);
+  useEffect(() => {
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.ALL);
+    return () => {
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.DEFAULT);
+    };
+  }, []);
 
   return (
-    <View>
-      <TemperatureUnitSelector 
-        temperatureUnit={temperatureUnit}
-        setTemperatureUnit={setTemperatureUnit}
-      />
-      <TextSizeSelector 
-        textSize={textSize}
-        setTextSize={setTextSize}
-      />
-      <SoundEffectsToggle 
-        soundEffects={soundEffects}
-        setSoundEffects={setSoundEffects}
-      />
-      <BrightnessAdjuster 
-        brightness={brightness}
-        setBrightness={setBrightness}
-      />
-    </View>
+    <ScrollView style={{ flex: 1 }}>
+      <TemperatureUnitSelector />
+      <TextSizeSelector />
+      <SoundEffectsToggle />
+      <BrightnessAdjuster />
+      <Help />
+    </ScrollView>
   );
 };
 
