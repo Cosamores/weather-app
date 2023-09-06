@@ -42,3 +42,9 @@ Console logs were utilized for testing. Ensure the console is open to view logs 
 ## License
 MIT License.
 
+## References
+
+[Weather API: ](https://www.weatherapi.com/)
+[Geonames API: ](https://www.geonames.org/)
+[React Native Styling Buttons: ](https://docs.expo.dev/ui-programming/react-native-styling-buttons/)
+[React Native Screen Brightness: ](https://www.npmjs.com/package/react-native-screen-brightness/)
