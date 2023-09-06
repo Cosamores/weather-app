@@ -1,11 +1,44 @@
-# Sample Snack app
+# Weather App
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+Welcome to the Weather App, a mobile application built using React Native and Expo. This app allows users to view the current weather conditions of various cities, adjust text sizes for accessibility, toggle the sound effects, set screen brightness and switch between Celsius and Fahrenheit temperature units.
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+## Features
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+- Dynamic Weather Display: View the current weather conditions of various cities, including temperature, weather description, and an icon representing the current weather.
+- Search Functionality: Add new cities to the main screen by searching for them.
+- Settings: Adjust the text size for better readability and switch between Celsius and Fahrenheit temperature units.
+- Responsive Design: The app's design is responsive and adjusts based on the screen's orientation (portrait or landscape).
+- Swipe to Delete: Swipe left on a city's weather card to delete it from the main screen.
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
+## Technologies
+- React Native
+- Expo
+- Context API
+- React Navigation
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+## Getting Started
+
+1. Clone the Repository:
+```
+git clone [repository-url]
+cd [repository-name]
+```
+
+2. Install Dependencies:
+```
+npm install
+```
+
+3. Run with Expo:
+```
+expo start
+```
+
+4. Scan the QR code with the Expo Go app on your device or use a simulator.
+
+## Testing
+Console logs were utilized for testing. Ensure the console is open to view logs when running the app.
+
+## License
+MIT License.
+
