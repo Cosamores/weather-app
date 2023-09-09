@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ScrollView } from 'react-native';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import { SoundEffectsProvider } from '../context/SoundEffectsContext';
 
 import TemperatureUnitSelector from '../components/TemperatureUnitSelector';
 import TextSizeSelector from '../components/TextSizeSelector';
@@ -17,14 +18,17 @@ const SettingsScreen = () => {
     };
   }, []);
 
-  return (
+  return (      
+  <SoundEffectsProvider>
     <ScrollView style={{ flex: 1 }}>
       <TemperatureUnitSelector />
       <TextSizeSelector />
-      <SoundEffectsToggle />
+        <SoundEffectsToggle />
+     
       <BrightnessAdjuster />
       <Help />
     </ScrollView>
+    </SoundEffectsProvider>
   );
 };
 

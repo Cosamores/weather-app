@@ -11,10 +11,14 @@ const NavBar = ({ navigateToSettings, navigateToSearch }) => {
   const isLandscape = width > height;
 
   return (
-    <View style={styles.navBar}>
-      <Pressable title="⚙️" onPress={navigateToSettings} ><Text style={styles.btn}>⚙️</Text></Pressable>
-      <Text style={styles.title}>{isLandscape ? 'Weather App' : 'Weather\nApp'}</Text>
-      <Pressable title="🔍" onPress={navigateToSearch} ><Text style={styles.btn}>🔍</Text></Pressable>
+    <View style={isLandscape ? styles.navBarLandscape : styles.navBar}>
+      <Pressable title={isLandscape ? "Settings" : "⚙️"} onPress={navigateToSettings}>
+        <Text style={styles.btn}>{isLandscape ? "Settings" : "⚙️"}</Text>
+      </Pressable>
+      <Text style={styles.title}>{isLandscape ? 'Weather Time' : 'Weather\nApp'}</Text>
+      <Pressable title={isLandscape ? "Add City" : "+"} onPress={navigateToSearch}>
+        <Text style={styles.btn}>{isLandscape ? "Add City" : "+"}</Text>
+      </Pressable>
     </View>
   );
 };

@@ -33,7 +33,41 @@ hiddenItem: {
 deleteBtn: {
   color: 'white',
   fontWeight: '700', textAlign: 'right',
-}
+},
+welcomeContainer: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: 20,
+  backgroundColor: '#f7f7f7',
+  borderRadius: 10,
+  margin: 10,
+  marginTop: isLandscape ? 20 : 100,
+  marginLeft: isLandscape ? 180 : 10,
+  shadowColor: '#000',
+  shadowOffset: {
+    width: 0,
+    height: 2,
+  },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
+  maxHeight: isLandscape ? 420 : 450
+},
+
+welcomeTitle: {
+  fontSize: 24,
+  fontWeight: 'bold',
+  marginBottom: 20,
+  color: '#333',
+},
+
+welcomeText: {
+  fontSize: 16,
+  textAlign: 'center',
+  marginBottom: 10,
+  color: '#555',
+},
 })
 return dynamicStyles;
 

@@ -17,7 +17,7 @@ const Help = () => {
       <Text style={styles.text}>Version: 1.0</Text>
       <Text style={styles.text}>Last update: 9 September 2023</Text>
       <Text style={styles.text}>Build date: 9 september 2023</Text>
-      <Text style={styles.text}>Developer: John Doe</Text>
+      <Text style={styles.text}>Developer: Deigo Soares</Text>
       <Text style={styles.text}>Student number: 123456</Text>
     </View>
     </Pressable>
